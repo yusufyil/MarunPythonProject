@@ -8,6 +8,7 @@ class Game:
         self.height = screenHeight
         self.gameBoard = pg.image.load(os.path.join("assets","chessboard.png"))
         self.gameBoard = pg.transform.scale(self.gameBoard,(680,680))
+        self.selectedPos = []
         self.createBoard()
         self.boardCoordinate = [[0 for i in range(8)] for j in range(8)]
         self.initializeBoard()
@@ -38,9 +39,15 @@ class Game:
         self.boardCoordinate[5][7] = pc.bishop("bishop", "white", 5, 7, False)
         self.boardCoordinate[3][7] = pc.queen("queen", "white", 3, 7, False)
         self.boardCoordinate[4][7] = pc.king("king", "white", 4, 7, False)
+
     def blitBoard(self):
         for i in range(8):
             for j in range(8):
                 if(self.boardCoordinate[i][j] != 0):
                     self.screen.blit(self.boardCoordinate[i][j].graphic, (85 * self.boardCoordinate[i][j].xPos, 85 * self.boardCoordinate[i][j].yPos))
+
+    def drawSelected(self, coords = [3, 4]):
+        selectedSquare = pg.image.load(os.path.join("assets", "selected.png"))
+        selectedSquare = pg.transform.scale(selectedSquare, (85, 85))
+        self.screen.blit(selectedSquare, (coords[0] * 85, coords[1] * 85))
 
