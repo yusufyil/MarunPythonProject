@@ -52,7 +52,7 @@ class Game:
         selectedSquare = pg.image.load(os.path.join("assets", "selected.png"))
         selectedSquare = pg.transform.scale(selectedSquare, (85, 85))
         self.screen.blit(selectedSquare, (coords[0] * 85 + 1, coords[1] * 85 + 1))
-    def drawPossibleMoovements(self, coords = [0,0]):
+    def drawPossibleMoovements(self, coords = [0, 0]):
         for coord in coords:
-            pass
+            self.screen.blit(self.cross, (coord[0] * 85, coord[1] * 85))
 

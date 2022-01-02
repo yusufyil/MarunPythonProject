@@ -46,7 +46,11 @@ while onContinue:
         gameScreen.createBoard()
         if (gameScreen.selectedPos != []):
             gameScreen.drawSelected(gameScreen.selectedPos)
-            #gameScreen.gameBoard.drawPossibleMoovements(gameScreen.selectedPos)
+            print(gameScreen.selectedPos)
+            selectedPiece = gameScreen.boardCoordinate[gameScreen.selectedPos[0]][gameScreen.selectedPos[1]]
+            selectedPiece.createPossibleMoovements()
+            #print(selectedPiece)
+            gameScreen.drawPossibleMoovements(selectedPiece.possibleMoovements)
         gameScreen.blitBoard()
     pg.display.update()
 
