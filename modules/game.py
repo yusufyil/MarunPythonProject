@@ -6,8 +6,10 @@ class Game:
         self.screen = screen
         self.width = screenWidth
         self.height = screenHeight
-        self.gameBoard = pg.image.load(os.path.join("assets","chessboard.png"))
-        self.gameBoard = pg.transform.scale(self.gameBoard,(680,680))
+        self.gameBoard = pg.image.load(os.path.join("assets", "chessboard.png"))
+        self.gameBoard = pg.transform.scale(self.gameBoard, (680, 680))
+        self.cross = pg.image.load(os.path.join("assets", "crosshair.png"))
+        self.cross = pg.transform.scale(self.cross, (85, 85))
         self.selectedPos = []
         self.createBoard()
         self.boardCoordinate = [[0 for i in range(8)] for j in range(8)]
@@ -49,5 +51,8 @@ class Game:
     def drawSelected(self, coords = [3, 4]):
         selectedSquare = pg.image.load(os.path.join("assets", "selected.png"))
         selectedSquare = pg.transform.scale(selectedSquare, (85, 85))
-        self.screen.blit(selectedSquare, (coords[0] * 85, coords[1] * 85))
+        self.screen.blit(selectedSquare, (coords[0] * 85 + 1, coords[1] * 85 + 1))
+    def drawPossibleMoovements(self, coords = [0,0]):
+        for coord in coords:
+            pass
 

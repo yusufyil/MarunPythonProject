@@ -33,6 +33,7 @@ while onContinue:
                 xSquare = mousePos[0] // 85
                 ySquare = mousePos[1] // 85
                 if(gameScreen.boardCoordinate[xSquare][ySquare] == 0):
+                    print("heywer")
                     pass
                 else:
                     gameScreen.selectedPos = [xSquare, ySquare]
@@ -45,6 +46,7 @@ while onContinue:
         gameScreen.createBoard()
         if (gameScreen.selectedPos != []):
             gameScreen.drawSelected(gameScreen.selectedPos)
+            #gameScreen.gameBoard.drawPossibleMoovements(gameScreen.selectedPos)
         gameScreen.blitBoard()
     pg.display.update()
 
