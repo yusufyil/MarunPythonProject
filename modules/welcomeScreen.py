@@ -1,7 +1,7 @@
 import pygame as pg
 import os
 import modules.color as col
-import modules.game
+
 
 
 class welcome:
@@ -20,6 +20,4 @@ class welcome:
         textRect.center = (self.width / 2, 100 + self.height / 2)
         self.screen.blit(text, textRect)
         pg.display.update()
-    def loadGame(self):
-        GameBoard = modules.game.Game(self.screen,self.width,self.height)
-        GameBoard.startGame()
+
