@@ -153,7 +153,7 @@ class rook(chessPieces):
                 else:
                     break
         for i in range(8):
-            if self.isLegalMoove([self.xPos, self.yPos] + i):
+            if self.isLegalMoove([self.xPos, self.yPos + i]):
                 if gameBoard[self.xPos][self.yPos + i] == 0:
                     self.possibleMoovements.append([self.xPos, self.yPos + i])
                 elif gameBoard[self.xPos][self.yPos + i].color != self.color:
