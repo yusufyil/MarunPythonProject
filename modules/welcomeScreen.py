@@ -5,7 +5,7 @@ import modules.color as col
 
 
 class welcome:
-    def __init__(self,screen,screenWidth,screenHeight):
+    def __init__(self, screen, screenWidth, screenHeight):
         self.screen = screen
         self.width = screenWidth
         self.height = screenHeight

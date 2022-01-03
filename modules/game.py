@@ -2,7 +2,7 @@ import pygame as pg
 import os
 import modules.pieces as pc
 class Game:
-    def __init__(self,screen, screenWidth, screenHeight):
+    def __init__(self, screen, screenWidth, screenHeight):
         self.screen = screen
         self.width = screenWidth
         self.height = screenHeight
@@ -19,7 +19,7 @@ class Game:
         pass
     def createBoard(self):
         pg.display.set_caption("Oyun tahtası")
-        self.screen.blit(self.gameBoard,(0,0))
+        self.screen.blit(self.gameBoard, (0, 0))
     def initializeBoard(self):
         for i in range(8):
             self.boardCoordinate[i][1] = pc.pawn("pawn", "black", i, 1, False)
@@ -31,7 +31,7 @@ class Game:
         self.boardCoordinate[2][0] = pc.bishop("bishop", "black", 2, 0, False)
         self.boardCoordinate[5][0] = pc.bishop("bishop", "black", 5, 0, False)
         self.boardCoordinate[3][0] = pc.queen("queen", "black", 3, 0, False)
-        self.boardCoordinate[4][0] = pc.king("king", "black",4,0,False)
+        self.boardCoordinate[4][0] = pc.king("king", "black", 4, 0, False)
 
         self.boardCoordinate[0][7] = pc.rook("rook", "white", 0, 7, False)
         self.boardCoordinate[7][7] = pc.rook("rook", "white", 7, 7, False)
