@@ -16,6 +16,19 @@ clock = pg.time.Clock()
 onContinue = True
 isWelcomeScreenShown = False
 isGameScreenShown = False
+whiteTurn = True
+blackTurn = False
+isPieceSelected = False
+
+def changeTurn():
+    global whiteTurn
+    global blackTurn
+    if whiteTurn:
+        whiteTurn = False
+        blackTurn = True
+    else:
+        whiteTurn = True
+        blackTurn = False
 
 wScreen = ws.welcome(screen, width, height)
 gameScreen = game.Game(screen, width, height)
@@ -31,10 +44,24 @@ while onContinue:
                 print("Welcome screen has been shown.")
                 isWelcomeScreenShown = True
                 screen.fill(col.BLACK)
+            elif not isGameScreenShown and mousePos[0] <= 680:
+                xSquare = mousePos[0] // 85
+                ySquare = mousePos[1] // 85
+                gameScreen.selectedPos = [xSquare, ySquare]
+                print(gameScreen.selectedPos)
+
+
+
     if not isWelcomeScreenShown:
         wScreen.createWelcomeScreen()
-    elif isGameScreenShown:
-        pass
+    elif not isGameScreenShown:
+        gameScreen.createBoard()
+        #drawing pieces and current positions
+        if not isPieceSelected:
+
+            gameScreen.blitBoard()
+        else:
+            pass
     pg.display.update()
 
 
