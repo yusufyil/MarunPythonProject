@@ -42,16 +42,17 @@ class Game:
         self.boardCoordinate[3][7] = pc.queen("queen", "white", 3, 7, False)
         self.boardCoordinate[4][7] = pc.king("king", "white", 4, 7, False)
 
+
     def blitBoard(self):
         for i in range(8):
             for j in range(8):
                 if(self.boardCoordinate[i][j] != 0):
                     self.screen.blit(self.boardCoordinate[i][j].graphic, (85 * self.boardCoordinate[i][j].xPos, 85 * self.boardCoordinate[i][j].yPos))
 
-    def drawSelected(self, coords = [3, 4]):
+    def drawSelected(self):
         selectedSquare = pg.image.load(os.path.join("assets", "selected.png"))
         selectedSquare = pg.transform.scale(selectedSquare, (85, 85))
-        self.screen.blit(selectedSquare, (coords[0] * 85 + 1, coords[1] * 85 + 1))
+        self.screen.blit(selectedSquare, (self.selectedPos[0] * 85 + 1, self.selectedPos[1] * 85 + 1))
     def drawPossibleMoovements(self, coords = [0, 0]):
         for coord in coords:
             self.screen.blit(self.cross, (coord[0] * 85, coord[1] * 85))

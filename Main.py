@@ -47,8 +47,18 @@ while onContinue:
             elif not isGameScreenShown and mousePos[0] <= 680:
                 xSquare = mousePos[0] // 85
                 ySquare = mousePos[1] // 85
-                gameScreen.selectedPos = [xSquare, ySquare]
-                print(gameScreen.selectedPos)
+                #gameScreen.selectedPos = [xSquare, ySquare]
+                #print(gameScreen.selectedPos)
+                if gameScreen.boardCoordinate[xSquare][ySquare] == 0:
+                    pass
+                elif whiteTurn and gameScreen.boardCoordinate[xSquare][ySquare].color == "white":
+                    gameScreen.selectedPos = [xSquare, ySquare]
+                    isPieceSelected = True
+                elif blackTurn and gameScreen.boardCoordinate[xSquare][ySquare].color == "black":
+                    gameScreen.selectedPos = [xSquare, ySquare]
+                    isPieceSelected = True
+                else:
+                    pass
 
 
 
@@ -58,10 +68,14 @@ while onContinue:
         gameScreen.createBoard()
         #drawing pieces and current positions
         if not isPieceSelected:
-
             gameScreen.blitBoard()
         else:
-            pass
+            gameScreen.drawSelected()
+            gameScreen.blitBoard()
+            selectedPiece = gameScreen.boardCoordinate[gameScreen.selectedPos[0]][gameScreen.selectedPos[1]]
+            selectedPiece.createPossibleMoovements(gameScreen.boardCoordinate)
+            gameScreen.drawPossibleMoovements(selectedPiece.possibleMoovements)
+
     pg.display.update()
 
 
