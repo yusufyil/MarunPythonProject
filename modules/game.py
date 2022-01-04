@@ -57,3 +57,4 @@ class Game:
         for coord in coords:
             self.screen.blit(self.cross, (coord[0] * 85, coord[1] * 85))
 
+

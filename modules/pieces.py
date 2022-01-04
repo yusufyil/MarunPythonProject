@@ -16,6 +16,8 @@ class chessPieces:
         else:
             return False
 
+
+
 class king(chessPieces):
     def __init__(self, type, color, xPos, yPos, firstMoove):
         super().__init__(type, color, xPos, yPos, firstMoove)
@@ -28,6 +30,7 @@ class king(chessPieces):
             self.graphic = pg.image.load(os.path.join("assets", "bking.png"))
         self.graphic = pg.transform.scale(self.graphic,(85,85))
     def createPossibleMoovements(self, gameBoard = []):
+        self.possibleMoovements.clear()
         tempMoovements = []
         tempMoovements.append([self.xPos - 1, self.yPos - 1])
         tempMoovements.append([self.xPos, self.yPos - 1])
@@ -47,6 +50,7 @@ class king(chessPieces):
                     continue
 
 
+
 class queen(chessPieces):
     def __init__(self, type, color, xPos, yPos, firstMoove):
         super().__init__(type, color, xPos, yPos, firstMoove)
@@ -59,7 +63,8 @@ class queen(chessPieces):
             self.graphic = pg.image.load(os.path.join("assets", "bqueen.png"))
         self.graphic = pg.transform.scale(self.graphic, (85, 85))
     def createPossibleMoovements(self, gameBoard = []):
-        for i in range(8):
+        self.possibleMoovements.clear()
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos + i, self.yPos]):
                 if gameBoard[self.xPos + i][self.yPos] == 0:
                     self.possibleMoovements.append([self.xPos + i, self.yPos])
@@ -67,7 +72,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos - i, self.yPos]):
                 if gameBoard[self.xPos - i][self.yPos] == 0:
                     self.possibleMoovements.append([self.xPos - i, self.yPos])
@@ -75,7 +80,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos, self.yPos + i]):
                 if gameBoard[self.xPos][self.yPos + i] == 0:
                     self.possibleMoovements.append([self.xPos, self.yPos + i])
@@ -83,7 +88,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos, self.yPos + i])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos, self.yPos - i]):
                 if gameBoard[self.xPos][self.yPos - i] == 0:
                     self.possibleMoovements.append([self.xPos, self.yPos - i])
@@ -91,7 +96,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos, self.yPos - i])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos - i, self.yPos - i]):
                 if gameBoard[self.xPos - i][self.yPos - i] == 0:
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
@@ -99,7 +104,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos + i, self.yPos - i]):
                 if gameBoard[self.xPos + i][self.yPos - i] == 0:
                     self.possibleMoovements.append([self.xPos + i, self.yPos - i])
@@ -107,7 +112,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos - i])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos + i, self.yPos + i]):
                 if gameBoard[self.xPos + i][self.yPos + i] == 0:
                     self.possibleMoovements.append([self.xPos + i, self.yPos + i])
@@ -115,7 +120,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos + i])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos - i, self.yPos + i]):
                 if gameBoard[self.xPos - i][self.yPos + i] == 0:
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
@@ -123,6 +128,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos + i])
                 else:
                     break
+
 
 class rook(chessPieces):
     def __init__(self, type, color, xPos, yPos, firstMoove):
@@ -136,7 +142,8 @@ class rook(chessPieces):
             self.graphic = pg.image.load(os.path.join("assets", "brook.png"))
         self.graphic = pg.transform.scale(self.graphic, (85, 85))
     def createPossibleMoovements(self, gameBoard = []):
-        for i in range(8):
+        self.possibleMoovements.clear()
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos + i, self.yPos]):
                 if gameBoard[self.xPos + i][self.yPos] == 0:
                     self.possibleMoovements.append([self.xPos + i, self.yPos])
@@ -144,7 +151,7 @@ class rook(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos - i, self.yPos]):
                 if gameBoard[self.xPos - i][self.yPos] == 0:
                     self.possibleMoovements.append([self.xPos - i, self.yPos])
@@ -152,7 +159,7 @@ class rook(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos, self.yPos + i]):
                 if gameBoard[self.xPos][self.yPos + i] == 0:
                     self.possibleMoovements.append([self.xPos, self.yPos + i])
@@ -160,7 +167,7 @@ class rook(chessPieces):
                     self.possibleMoovements.append([self.xPos, self.yPos + i])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos, self.yPos - i]):
                 if gameBoard[self.xPos][self.yPos - i] == 0:
                     self.possibleMoovements.append([self.xPos, self.yPos - i])
@@ -168,6 +175,7 @@ class rook(chessPieces):
                     self.possibleMoovements.append([self.xPos, self.yPos - i])
                 else:
                     break
+
 
 
 
@@ -183,7 +191,8 @@ class bishop(chessPieces):
             self.graphic = pg.image.load(os.path.join("assets", "bbishop.png"))
         self.graphic = pg.transform.scale(self.graphic, (85, 85))
     def createPossibleMoovements(self, gameBoard = []):
-        for i in range(8):
+        self.possibleMoovements.clear()
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos - i, self.yPos - i]):
                 if gameBoard[self.xPos - i][self.yPos - i] == 0:
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
@@ -191,7 +200,7 @@ class bishop(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos + i, self.yPos - i]):
                 if gameBoard[self.xPos + i][self.yPos - i] == 0:
                     self.possibleMoovements.append([self.xPos + i, self.yPos - i])
@@ -199,7 +208,7 @@ class bishop(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos - i])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos + i, self.yPos + i]):
                 if gameBoard[self.xPos + i][self.yPos + i] == 0:
                     self.possibleMoovements.append([self.xPos + i, self.yPos + i])
@@ -207,7 +216,7 @@ class bishop(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos + i])
                 else:
                     break
-        for i in range(8):
+        for i in range(1, 8):
             if self.isLegalMoove([self.xPos - i, self.yPos + i]):
                 if gameBoard[self.xPos - i][self.yPos + i] == 0:
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
@@ -215,6 +224,7 @@ class bishop(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos + i])
                 else:
                     break
+
 
 class knight(chessPieces):
     def __init__(self, type, color, xPos, yPos, firstMoove):
@@ -228,6 +238,7 @@ class knight(chessPieces):
             self.graphic = pg.image.load(os.path.join("assets", "bknight.png"))
         self.graphic = pg.transform.scale(self.graphic, (85, 85))
     def createPossibleMoovements(self, gameBoard = []):
+        self.possibleMoovements.clear()
         tempMoovements = []
         tempMoovements.append([self.xPos - 1, self.yPos - 2])
         tempMoovements.append([self.xPos + 1, self.yPos - 2])
@@ -244,6 +255,7 @@ class knight(chessPieces):
                 elif gameBoard[m[0]][m[1]] != 0 and gameBoard[m[0]][m[1]].color != self.color:
                     self.possibleMoovements.append(m)
 
+
 class pawn(chessPieces):
     def __init__(self, type, color, xPos, yPos, firstMoove):
         super().__init__(type, color, xPos, yPos, firstMoove)
@@ -256,6 +268,7 @@ class pawn(chessPieces):
             self.graphic = pg.image.load(os.path.join("assets", "bpawn.png"))
         self.graphic = pg.transform.scale(self.graphic, (85, 85))
     def createPossibleMoovements(self, gameBoard = []):
+        self.possibleMoovements.clear()
         if self.color == "white":
             if gameBoard[self.xPos][self.yPos - 1] == 0:
                 self.possibleMoovements.append([self.xPos, self.yPos - 1])
@@ -274,5 +287,6 @@ class pawn(chessPieces):
                 self.possibleMoovements.append([self.xPos - 1][self.yPos + 1])
             elif gameBoard[self.xPos + 1][self.yPos + 1] != 0 and gameBoard[self.xPos + 1][self.yPos + 1].color =="white":
                 self.possibleMoovements.append([self.xPos + 1][self.yPos + 1])
+
 
 

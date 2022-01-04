@@ -19,6 +19,7 @@ isGameScreenShown = False
 whiteTurn = True
 blackTurn = False
 isPieceSelected = False
+possibleCoords = []
 
 def changeTurn():
     global whiteTurn
@@ -40,13 +41,13 @@ while onContinue:
             pg.quit()
         elif event.type == pg.MOUSEBUTTONUP:
             mousePos = pg.mouse.get_pos()
+            xSquare = mousePos[0] // 85
+            ySquare = mousePos[1] // 85
             if not isWelcomeScreenShown and mousePos[0] >= width / 2 - 100 and mousePos[0] <= width / 2 + 100 and mousePos[1] >= height / 2 - 200 and mousePos[1] <= height / 2:
                 print("Welcome screen has been shown.")
                 isWelcomeScreenShown = True
                 screen.fill(col.BLACK)
             elif not isGameScreenShown and mousePos[0] <= 680:
-                xSquare = mousePos[0] // 85
-                ySquare = mousePos[1] // 85
                 #gameScreen.selectedPos = [xSquare, ySquare]
                 #print(gameScreen.selectedPos)
                 if gameScreen.boardCoordinate[xSquare][ySquare] == 0:
@@ -59,6 +60,15 @@ while onContinue:
                     isPieceSelected = True
                 else:
                     pass
+            #now coding the moovements
+            if [xSquare, ySquare] in possibleCoords:
+                print("change turn")
+                gameScreen.boardCoordinate[xSquare][ySquare] = gameScreen.boardCoordinate[gameScreen.selectedPos[0]][gameScreen.selectedPos[1]]
+                gameScreen.boardCoordinate[gameScreen.selectedPos[0]][gameScreen.selectedPos[1]] = 0
+                gameScreen.boardCoordinate[xSquare][ySquare].xPos = xSquare
+                gameScreen.boardCoordinate[xSquare][ySquare].yPos = ySquare
+                isPieceSelected = False
+                changeTurn()
 
 
 
@@ -74,6 +84,7 @@ while onContinue:
             gameScreen.blitBoard()
             selectedPiece = gameScreen.boardCoordinate[gameScreen.selectedPos[0]][gameScreen.selectedPos[1]]
             selectedPiece.createPossibleMoovements(gameScreen.boardCoordinate)
+            possibleCoords = selectedPiece.possibleMoovements
             gameScreen.drawPossibleMoovements(selectedPiece.possibleMoovements)
 
     pg.display.update()
