@@ -272,7 +272,7 @@ class pawn(chessPieces):
         if self.color == "white":
             if gameBoard[self.xPos][self.yPos - 1] == 0:
                 self.possibleMoovements.append([self.xPos, self.yPos - 1])
-                if gameBoard[self.xPos][self.yPos - 2] == 0:
+                if gameBoard[self.xPos][self.yPos - 2] == 0 and not self.firstMoove:
                     self.possibleMoovements.append([self.xPos, self.yPos - 2])
             elif gameBoard[self.xPos - 1][self.yPos - 1] != 0 and gameBoard[self.xPos - 1][self.yPos - 1].color =="black":
                 self.possibleMoovements.append([self.xPos - 1][self.yPos - 1])
@@ -281,7 +281,7 @@ class pawn(chessPieces):
         elif self.color =="black":
             if gameBoard[self.xPos][self.yPos + 1] == 0:
                 self.possibleMoovements.append([self.xPos, self.yPos + 1])
-                if gameBoard[self.xPos][self.yPos + 2] == 0:
+                if gameBoard[self.xPos][self.yPos + 2] == 0 and not self.firstMoove:
                     self.possibleMoovements.append([self.xPos, self.yPos + 2])
             elif gameBoard[self.xPos - 1][self.yPos + 1] != 0 and gameBoard[self.xPos - 1][self.yPos + 1].color =="white":
                 self.possibleMoovements.append([self.xPos - 1][self.yPos + 1])

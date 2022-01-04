@@ -67,6 +67,7 @@ while onContinue:
                 gameScreen.boardCoordinate[gameScreen.selectedPos[0]][gameScreen.selectedPos[1]] = 0
                 gameScreen.boardCoordinate[xSquare][ySquare].xPos = xSquare
                 gameScreen.boardCoordinate[xSquare][ySquare].yPos = ySquare
+                gameScreen.boardCoordinate[xSquare][ySquare].firstMoove = True
                 isPieceSelected = False
                 changeTurn()
 
