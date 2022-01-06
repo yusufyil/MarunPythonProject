@@ -303,5 +303,3 @@ class pawn(chessPieces):
             elif gameBoard[self.xPos + 1][self.yPos + 1] != 0 and gameBoard[self.xPos + 1][self.yPos + 1].color =="white":
                 self.possibleMoovements.append([self.xPos + 1][self.yPos + 1])
 
-
-

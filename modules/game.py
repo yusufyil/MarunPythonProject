@@ -88,4 +88,3 @@ class Game:
         else:
             return "black"
 
-
