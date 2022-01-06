@@ -15,12 +15,11 @@ class Game:
         self.createBoard()
         self.boardCoordinate = [[0 for i in range(8)] for j in range(8)]
         self.initializeBoard()
-    def startGame(self):
-        print("Game loop started")
-        pass
+
     def createBoard(self):
-        pg.display.set_caption("Oyun tahtası")
+        pg.display.set_caption("Marmara Chess <3")
         self.screen.blit(self.gameBoard, (0, 0))
+
     def initializeBoard(self):
         for i in range(8):
             self.boardCoordinate[i][1] = pc.pawn("pawn", "black", i, 1, False)
@@ -43,7 +42,6 @@ class Game:
         self.boardCoordinate[3][7] = pc.queen("queen", "white", 3, 7, False)
         self.boardCoordinate[4][7] = pc.king("king", "white", 4, 7, False)
 
-
     def blitBoard(self):
         for i in range(8):
             for j in range(8):
@@ -54,9 +52,11 @@ class Game:
         selectedSquare = pg.image.load(os.path.join("assets", "selected.png"))
         selectedSquare = pg.transform.scale(selectedSquare, (85, 85))
         self.screen.blit(selectedSquare, (self.selectedPos[0] * 85 + 1, self.selectedPos[1] * 85 + 1))
+
     def drawPossibleMoovements(self, coords = [0, 0]):
         for coord in coords:
             self.screen.blit(self.cross, (coord[0] * 85, coord[1] * 85))
+
     def showGameInfo(self, white, black):
         turn = ""
         if white:
@@ -68,6 +68,7 @@ class Game:
         textRect = text.get_rect()
         textRect.center = (800, 300)
         self.screen.blit(text, textRect)
+
     def checkForWinner(self):
         isWhiteKingFound = False
         isBlackKingFound = False

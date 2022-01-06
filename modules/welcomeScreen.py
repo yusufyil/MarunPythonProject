@@ -9,6 +9,7 @@ class welcome:
         self.screen = screen
         self.width = screenWidth
         self.height = screenHeight
+
     def createWelcomeScreen(self):
         self.screen.fill(col.BLACK)
         self.logo = pg.image.load(os.path.join("assets", "MarunLogo.png"))

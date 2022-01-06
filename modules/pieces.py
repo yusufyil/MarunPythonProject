@@ -10,13 +10,12 @@ class chessPieces:
         self.yPos = yPos
         self.firstMoove = firstMoove
         self.graphic = None
+
     def isLegalMoove(self, pos = []):
         if pos[0] >= 0 and pos[0] <= 7 and pos[1] >= 0 and pos[1] <= 7:
             return True
         else:
             return False
-
-
 
 class king(chessPieces):
     def __init__(self, type, color, xPos, yPos, firstMoove):

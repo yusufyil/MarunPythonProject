@@ -9,6 +9,7 @@ class endingScreen:
         self.screen = screen
         self.width = screenWidth
         self.height = screenHeight
+
     def createEndingScreen(self, winner = ""):
         self.screen.fill(col.BLACK)
         self.logo = pg.image.load(os.path.join("assets", "MarunLogo.png"))

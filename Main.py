@@ -9,8 +9,6 @@ height = 680
 
 pg.init()
 screen = pg.display.set_mode((width, height))
-#w = ws.welcome(screen,width,height)
-#pg.display.set_caption("Marmara chess")
 FPS = 60
 mousePos = (0, 0)
 clock = pg.time.Clock()
@@ -50,8 +48,6 @@ while onContinue:
                 isWelcomeScreenShown = True
                 screen.fill(col.BLACK)
             elif not isGameScreenShown and mousePos[0] <= 680:
-                #gameScreen.selectedPos = [xSquare, ySquare]
-                #print(gameScreen.selectedPos)
                 if gameScreen.boardCoordinate[xSquare][ySquare] == 0:
                     pass
                 elif whiteTurn and gameScreen.boardCoordinate[xSquare][ySquare].color == "white":
