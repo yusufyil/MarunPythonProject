@@ -2,6 +2,7 @@ import pygame as pg
 import modules.color as col
 import modules.welcomeScreen as ws
 import modules.game as game
+import modules.endingScreen as end
 
 width = 960
 height = 680
@@ -33,6 +34,7 @@ def changeTurn():
 
 wScreen = ws.welcome(screen, width, height)
 gameScreen = game.Game(screen, width, height)
+eScreen = end.endingScreen(screen, width, height)
 
 while onContinue:
     clock.tick(FPS)
@@ -90,11 +92,13 @@ while onContinue:
             possibleCoords = selectedPiece.possibleMoovements
             gameScreen.drawPossibleMoovements(selectedPiece.possibleMoovements)
         if not gameScreen.checkForWinner():
-            print("Oyun Devam ediyor")
+            pass
         elif gameScreen.checkForWinner() == "white":
             print("Beyazlar kazandı")
+            eScreen.createEndingScreen("beyaz")
         elif gameScreen.checkForWinner() == "black":
             print("Siyahlar kazandı")
+            eScreen.createEndingScreen("siyah")
 
 
     pg.display.update()
