@@ -89,6 +89,12 @@ while onContinue:
             selectedPiece.createPossibleMoovements(gameScreen.boardCoordinate)
             possibleCoords = selectedPiece.possibleMoovements
             gameScreen.drawPossibleMoovements(selectedPiece.possibleMoovements)
+        if not gameScreen.checkForWinner():
+            print("Oyun Devam ediyor")
+        elif gameScreen.checkForWinner() == "white":
+            print("Beyazlar kazandı")
+        elif gameScreen.checkForWinner() == "black":
+            print("Siyahlar kazandı")
 
 
     pg.display.update()

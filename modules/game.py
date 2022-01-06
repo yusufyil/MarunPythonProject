@@ -68,6 +68,23 @@ class Game:
         textRect = text.get_rect()
         textRect.center = (800, 300)
         self.screen.blit(text, textRect)
-        
+    def checkForWinner(self):
+        isWhiteKingFound = False
+        isBlackKingFound = False
+        for row in self.boardCoordinate:
+            for piece in row:
+                if piece == 0:
+                    pass
+                elif piece.type == "king":
+                    if piece.color == "black":
+                        isBlackKingFound = True
+                    elif piece.color == "white":
+                        isWhiteKingFound = True
+        if isWhiteKingFound and isBlackKingFound:
+            return False
+        elif isWhiteKingFound:
+            return "white"
+        else:
+            return "black"
 
 
