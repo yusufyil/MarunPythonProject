@@ -76,7 +76,9 @@ while onContinue:
     if not isWelcomeScreenShown:
         wScreen.createWelcomeScreen()
     elif not isGameScreenShown:
+        screen.fill(col.BLACK)
         gameScreen.createBoard()
+        gameScreen.showGameInfo(whiteTurn, blackTurn)
         #drawing pieces and current positions
         if not isPieceSelected:
             gameScreen.blitBoard()
@@ -87,6 +89,7 @@ while onContinue:
             selectedPiece.createPossibleMoovements(gameScreen.boardCoordinate)
             possibleCoords = selectedPiece.possibleMoovements
             gameScreen.drawPossibleMoovements(selectedPiece.possibleMoovements)
+
 
     pg.display.update()
 

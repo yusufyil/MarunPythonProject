@@ -70,6 +70,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos])
                 elif gameBoard[self.xPos + i][self.yPos].color != self.color:
                     self.possibleMoovements.append([self.xPos + i, self.yPos])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -78,6 +79,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos])
                 elif gameBoard[self.xPos - i][self.yPos].color != self.color:
                     self.possibleMoovements.append([self.xPos - i, self.yPos])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -86,6 +88,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos, self.yPos + i])
                 elif gameBoard[self.xPos][self.yPos + i].color != self.color:
                     self.possibleMoovements.append([self.xPos, self.yPos + i])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -94,6 +97,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos, self.yPos - i])
                 elif gameBoard[self.xPos][self.yPos - i].color != self.color:
                     self.possibleMoovements.append([self.xPos, self.yPos - i])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -102,6 +106,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
                 elif gameBoard[self.xPos - i][self.yPos - i].color != self.color:
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -110,6 +115,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos - i])
                 elif gameBoard[self.xPos + i][self.yPos - i].color != self.color:
                     self.possibleMoovements.append([self.xPos + i, self.yPos - i])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -118,6 +124,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos + i])
                 elif gameBoard[self.xPos + i][self.yPos + i].color != self.color:
                     self.possibleMoovements.append([self.xPos + i, self.yPos + i])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -126,6 +133,7 @@ class queen(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
                 elif gameBoard[self.xPos - i][self.yPos + i].color != self.color:
                     self.possibleMoovements.append([self.xPos - i, self.yPos + i])
+                    break
                 else:
                     break
 
@@ -149,6 +157,7 @@ class rook(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos])
                 elif gameBoard[self.xPos + i][self.yPos].color != self.color:
                     self.possibleMoovements.append([self.xPos + i, self.yPos])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -157,6 +166,7 @@ class rook(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos])
                 elif gameBoard[self.xPos - i][self.yPos].color != self.color:
                     self.possibleMoovements.append([self.xPos - i, self.yPos])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -165,6 +175,7 @@ class rook(chessPieces):
                     self.possibleMoovements.append([self.xPos, self.yPos + i])
                 elif gameBoard[self.xPos][self.yPos + i].color != self.color:
                     self.possibleMoovements.append([self.xPos, self.yPos + i])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -173,6 +184,7 @@ class rook(chessPieces):
                     self.possibleMoovements.append([self.xPos, self.yPos - i])
                 elif gameBoard[self.xPos][self.yPos - i].color != self.color:
                     self.possibleMoovements.append([self.xPos, self.yPos - i])
+                    break
                 else:
                     break
 
@@ -198,6 +210,7 @@ class bishop(chessPieces):
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
                 elif gameBoard[self.xPos - i][self.yPos - i].color != self.color:
                     self.possibleMoovements.append([self.xPos - i, self.yPos - i])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -206,6 +219,7 @@ class bishop(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos - i])
                 elif gameBoard[self.xPos + i][self.yPos - i].color != self.color:
                     self.possibleMoovements.append([self.xPos + i, self.yPos - i])
+                    break
                 else:
                     break
         for i in range(1, 8):
@@ -214,14 +228,16 @@ class bishop(chessPieces):
                     self.possibleMoovements.append([self.xPos + i, self.yPos + i])
                 elif gameBoard[self.xPos + i][self.yPos + i].color != self.color:
                     self.possibleMoovements.append([self.xPos + i, self.yPos + i])
+                    break
                 else:
                     break
         for i in range(1, 8):
             if self.isLegalMoove([self.xPos - i, self.yPos + i]):
                 if gameBoard[self.xPos - i][self.yPos + i] == 0:
-                    self.possibleMoovements.append([self.xPos - i, self.yPos - i])
+                    self.possibleMoovements.append([self.xPos - i, self.yPos + i])
                 elif gameBoard[self.xPos - i][self.yPos + i].color != self.color:
                     self.possibleMoovements.append([self.xPos - i, self.yPos + i])
+                    break
                 else:
                     break
 

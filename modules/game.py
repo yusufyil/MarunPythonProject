@@ -1,6 +1,7 @@
 import pygame as pg
 import os
 import modules.pieces as pc
+import modules.color as col
 class Game:
     def __init__(self, screen, screenWidth, screenHeight):
         self.screen = screen
@@ -56,5 +57,17 @@ class Game:
     def drawPossibleMoovements(self, coords = [0, 0]):
         for coord in coords:
             self.screen.blit(self.cross, (coord[0] * 85, coord[1] * 85))
+    def showGameInfo(self, white, black):
+        turn = ""
+        if white:
+            turn = "Beyaz"
+        elif black:
+            turn = "Siyah"
+        font = pg.font.Font('freesansbold.ttf', 18)
+        text = font.render("Sıra" + " " + turn + " " + "oyuncuda", True, col.WHITE)
+        textRect = text.get_rect()
+        textRect.center = (800, 300)
+        self.screen.blit(text, textRect)
+        
 
 
