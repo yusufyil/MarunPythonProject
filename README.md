@@ -1,6 +1,6 @@
 # MarunPythonProject
 I developed a basic chess game for my school project by using pygame module
-##Installation
+#Installation
 ```
 pip install pygame
 ```
