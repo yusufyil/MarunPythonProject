@@ -59,7 +59,7 @@ while onContinue:
                 else:
                     pass
             #now coding the moovements
-            if [xSquare, ySquare] in possibleCoords:
+            if [xSquare, ySquare] in possibleCoords and isPieceSelected:
                 print("change turn")
                 gameScreen.boardCoordinate[xSquare][ySquare] = gameScreen.boardCoordinate[gameScreen.selectedPos[0]][gameScreen.selectedPos[1]]
                 gameScreen.boardCoordinate[gameScreen.selectedPos[0]][gameScreen.selectedPos[1]] = 0
@@ -90,12 +90,9 @@ while onContinue:
         if not gameScreen.checkForWinner():
             pass
         elif gameScreen.checkForWinner() == "white":
-            print("Beyazlar kazandı")
             eScreen.createEndingScreen("beyaz")
         elif gameScreen.checkForWinner() == "black":
-            print("Siyahlar kazandı")
             eScreen.createEndingScreen("siyah")
-
 
     pg.display.update()
 
